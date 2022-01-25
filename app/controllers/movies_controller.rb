@@ -3,12 +3,6 @@ class MoviesController < ApplicationController
     @movies = Movie.all
   end
 
-=begin
-  def search
-    redirect_to movie_path
-  end
-=end
-
   def show
     set_movie
   end
