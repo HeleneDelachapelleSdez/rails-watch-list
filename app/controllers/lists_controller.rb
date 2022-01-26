@@ -23,6 +23,7 @@ class ListsController < ApplicationController
   end
 
   def destroy
+    set_list
     @list.destroy
     redirect_to lists_path
   end
