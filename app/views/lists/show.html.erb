@@ -1,8 +1,8 @@
 <div class="position-relative">
 
-    <h1><%= @list.name %></h1>
+  <h1><%= @list.name %></h1>
 
-    <span class="movie-tag"><%= pluralize(@list.movies.size, 'movie') %></span>
+  <span class="movie-tag"><%= pluralize(@list.movies.size, 'movie') %></span>
 </div>
 
 
@@ -16,27 +16,24 @@
       <%= link_to 'delete this list', list_path(@list), method: :delete, class: 'btn btn-cancel', data: { confirm: 'Are you sure you want to delete this list?' } %>
     </div>
   </div>
-  <div class="row my-2">
-    <% @list.movies.each do |movie| %>
-      <% bookmark = Bookmark.find_by(list: @list, movie: movie) %>
+  <% @list.bookmarks.each do |bookmark| %>
+    <div class="row my-2">
       <div class="col-12 col-sm-6 mb-4" data-aos="zoom-in">
         <div class="bg-white rounded shadow h-100">
-          <%= image_tag movie.poster_url, alt: movie.title, class: 'movie-img rounded-top' %>
+          <%= image_tag bookmark.movie.poster_url, alt: bookmark.movie.title, class: 'movie-img rounded-top', height: 900, width: 600 %>
           <div class="p-3 rounded-bottom d-flex flex-column">
-            <strong><%= movie.title %> <span class="text-muted font-weight-normal">• <%= movie.rating %> <i class="fas fa-star star-yellow"></i></span></strong>
-            <small class="text-muted"><%= movie.overview %></small>
+            <strong><%= bookmark.movie.title %> <span class="text-muted font-weight-normal">• <%= bookmark.movie.rating %> <i class="fas fa-star star-yellow"></i></span></strong>
+            <small class="text-muted"><%= bookmark.movie.overview %></small>
             <div class="d-flex align-items-end justify-content-between pt-4">
               <div>
                 <i class="fas fa-quote-left mr-2"></i><small class="flex-grow-1"><%= bookmark.comment %></small>
               </div>
-              <small class="text-right flex-shrink-0"><%= link_to 'delete', list_path(bookmark), method: :delete, data: { confirm: "Are you sure you want to remove #{movie.title} from your #{@list.name} list"}, class: 'text-danger' %></small>
             </div>
           </div>
         </div>
       </div>
-    <% end %>
-  </div>
-
+    </div>
+  <% end %>
 </div>
 
 
@@ -51,7 +48,7 @@
       </div>
       <div class="modal-body">
         <%= simple_form_for [@list, @bookmark] do |f| %>
-          <%= f.association :movie, collection: Movie.all.order(:title), prompt: 'Select a movie', input_html: { class: 'select2' } %>
+          <%= f.input :movie_id, collection: Movie.all.order(:title), prompt: 'Select a movie', input_html: { class: 'select2' } %>
           <%= f.input :comment, placeholder: 'Enter a comment about the movie' %>
       </div>
       <div class="modal-footer">

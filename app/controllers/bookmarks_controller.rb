@@ -10,10 +10,11 @@ class BookmarksController < ApplicationController
     @bookmark = Bookmark.new(bookmarks_params)
 
     @bookmark.list = @list
-
-    flash[:notice] = @bookmark.errors.full_messages.to_sentence unless @bookmark.save
-
-    redirect_to list_path(@list)
+      if @bookmark.save
+        redirect_to list_path(@list)
+      else
+        render 'lists/show'
+      end
   end
 
   def destroy
