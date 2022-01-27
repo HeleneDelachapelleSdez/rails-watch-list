@@ -2,20 +2,66 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: https://sass-lang.com/
 
-
-$background-color: hsl(0, 0%, 89%);
 $spacer: 30px;
 
 
 body {
-  background: $background-color;
-  font-family: Helvetica;
+  font-family: 'Courier New', Courier, monospace;
+  font-weight: lighter;
+  justify-content: center;
 }
 
 .cover {
-  border: 1px solid #ccc;
   padding: $spacer;
-  box-shadow: 0 0 1px;
+  box-shadow: 16px 0 16px rgb(203, 203, 203);
+  font-size: 40px;
+  background-color: bisque;
+
+  .h1 {
+    font-family: 'Courier New', Courier, monospace;
+  }
+}
+
+.container {
+  .mb-0 {
+    font-style: lighter;
+    padding: $spacer;
+    justify-content: center;
+  }
+
+  .row {
+  display: flex;
+  /* Cette valeur peut être changée dans l'exemple */
+  justify-content: space-between;
+  flex: wrap;
+  color: black;
 
 
+  justify-content: space-evenly;
+  }
+
+  .mb-0 {
+    justify-content: center;
+    font-style: bold;
+  }
+
+  .list-name {
+    color: black
+  }
+
+  .list-name:hover {
+    color: bisque;
+  }
+}
+
+.btn {
+  padding-left: 50px;
+
+  justify-content: center;
+
+  &:hover {
+  background-color: bisque;
+
+  border-radius: 50px;
+  }
 }

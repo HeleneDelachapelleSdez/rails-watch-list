@@ -1,12 +1,13 @@
-<%= @movie.title %> <br>
-<%= @movie.overview %> <br>
-<%= @movie.rating %> <br>
-<%= image_tag @movie.poster_url, alt: "poster", width: 200 %>
-<br>
+<div class="add-movie-to-list">
+  <%= @movie.title %>
+  <%= @movie.overview %>
+  <%= @movie.rating %>
+  <%= image_tag @movie.poster_url, alt: "poster", width: 100 %>
+</div>
 
-
-<%= link_to "go back to all the movies", movies_path %> <br>
-
+<div class="go-back-to-movies">
+  <%= link_to "go back to all the movies", movies_path %> <br>
+</div>
 <%# <%= simple_form_for [@movie, @list] do |f| %>
       <%#     <%= f.association :list, collection: List.all.order(:name), prompt: 'Select a list', input_html: { class: 'select2' } %>
       <%#     <%= f.button :submit %>

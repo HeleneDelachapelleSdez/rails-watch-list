@@ -1,18 +1,18 @@
 
 <div class="cover d-flex align-items-center justify-content-center">
   <div class="text-center">
-    <h1>All my lists</h1>
+    <strong><h1>ALL MY LISTS</h1></strong>
     <h3 class="typed-js"></h3>
   </div>
 </div>
 <div class="container py-5">
-  <div class="d-flex align-items-center justify-content-between mb-3">
-    <h3 class="mb-0">My Lists</h3>
+  <div class="d">
+    <h3 class="mb-0">My Lists:</h3>
   </div>
   <div class="row">
     <% @lists.each do |list| %>
-      <div class="co-12 colsm-6 col-md-4 mb-3">
-        <%= link_to list_path(list), class:'text-decoration-none' do %>
+      <div class="col-sm-6 align-item-center text-center">
+        <%= link_to list_path(list), class:'list-name' do %>
             <%= list.name %>
           </div>
         <% end %>
@@ -22,7 +22,7 @@
 </div>
 
 <br>
-<%= link_to "Create a new list", new_list_path, class: 'btn btn-flat' %> <br>
+<em><%= link_to "Create a new list", new_list_path, class: 'btn btn-flat' %> <br>
 
 <br>
-<%= link_to "See all movies", movies_path, class: 'btn btn-flat' %>
+<%= link_to "See all movies", movies_path, class: 'btn btn-flat' %></em>
