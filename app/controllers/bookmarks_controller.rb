@@ -10,11 +10,11 @@ class BookmarksController < ApplicationController
     @bookmark = Bookmark.new(bookmarks_params)
 
     @bookmark.list = @list
-      if @bookmark.save
-        redirect_to list_path(@list)
-      else
-        render 'lists/show'
-      end
+    if @bookmark.save
+      redirect_to list_path(@list)
+    else
+      render 'lists/show'
+    end
   end
 
   def destroy

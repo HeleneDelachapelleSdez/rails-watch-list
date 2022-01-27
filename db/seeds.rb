@@ -1,4 +1,4 @@
-if RAILS_ENV='development'
+if RAILS_ENV == 'development'
   Bookmark.destroy_all
   List.destroy_all
   Movie.destroy_all

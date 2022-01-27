@@ -35,7 +35,7 @@ body {
   justify-content: space-between;
   flex: wrap;
   color: black;
-
+  font-family: 'Times New Roman', Times, serif;
 
   justify-content: space-evenly;
   }
@@ -55,9 +55,10 @@ body {
 }
 
 .btn {
-  padding-left: 50px;
-
+  margin-left: 50px;
+  margin-right: 50px;
   justify-content: center;
+
 
   &:hover {
   background-color: bisque;

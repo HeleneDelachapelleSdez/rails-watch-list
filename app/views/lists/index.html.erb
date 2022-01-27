@@ -9,8 +9,8 @@
   <div class="d">
     <h3 class="mb-0">My Lists:</h3>
   </div>
-  <div class="row">
-    <% @lists.each do |list| %>
+  <% @lists.each do |list| %>
+    <div class="row">
       <div class="col-sm-6 align-item-center text-center">
         <%= link_to list_path(list), class:'list-name' do %>
             <%= list.name %>
